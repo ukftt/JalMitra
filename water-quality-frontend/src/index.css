@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* This imports all of Tailwind v4 */
+@import "tailwindcss";
+
+/* 1. DEFINE YOUR CUSTOM THEME COLORS HERE FOR V4 */
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Adding the missing colors Tailwind complained about */
+  --color-surface-50: #f8fafc;  /* Soft off-white/light gray background */
+  --color-ink-900: #0f172a;     /* Deep slate/almost black text */
+  --color-ink-600: #475569;     /* Medium gray for scrollbars */
+  --color-signal-500: #06b6d4;  /* Cyan/Signal color for focus outlines */
+}
+
+/* 2. APPLY THEM TO THE BASE ELEMENTS */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-surface-50 text-ink-900 antialiased;
+  font-feature-settings: "tnum";
+}
+
+/* Fixed focus styles using the native v4 theme variable syntax */
+:focus-visible {
+  outline: 2px solid var(--color-signal-500);
+  outline-offset: 2px;
+}
+
+/* Custom Utilities */
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@utility scrollbar-thin {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(71, 85, 105, 0.3); /* Uses static ink-600 color equivalent */
+    border-radius: 999px;
+  }
+}
+
+/* Leaflet overrides */
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 37, 69, 0.18);
+}
+.leaflet-popup-content {
+  margin: 0;
+  width: 280px !important;
+}
+.leaflet-popup-tip {
+  display: none;
+}
+.leaflet-container {
+  font-family: 'Inter', sans-serif;
+}

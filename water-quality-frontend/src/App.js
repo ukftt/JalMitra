@@ -1,7 +1,7 @@
-mport { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MapPage from './pages/MapPage';
 import LoginPage from './pages/LoginPage';
-import OfficialDashboard from './pages/OfficialDashboard';
+import OfficialDashboard from './pages/DashboardPage';
 import StatsPage from './pages/StatsPage';
 import Navbar from './components/Navbar';
 import { ToastContainer } from 'react-toastify';
